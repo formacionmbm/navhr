@@ -3,6 +3,7 @@ package com.oola.headhunter.navhr.services;
 import com.oola.headhunter.navhr.controllers.api.BuscadorPaisesRest;
 import com.oola.headhunter.navhr.entities.Pais;
 import com.oola.headhunter.navhr.repositories.PaisRepository;
+import com.oola.headhunter.navhr.repositories.RegionRepository;
 import com.oola.headhunter.navhr.services.exceptions.CodigoException;
 import com.oola.headhunter.navhr.services.exceptions.ServicioException;
 import com.oola.headhunter.navhr.services.exceptions.TipoExcepcion;
@@ -20,8 +21,13 @@ public class ServicioBuscadoresImpl implements ServicioBuscadores {
 
     Logger log = LoggerFactory.getLogger(ServicioBuscadoresImpl.class);
 
-    @Autowired
+    //@Autowired
     PaisRepository repositorio ;
+
+
+    public ServicioBuscadoresImpl(PaisRepository repositorio){
+        this.repositorio=repositorio;
+    }
 
     @Override
     public List<Pais> buscarPaises(String nombre) throws ServicioException {
@@ -36,4 +42,5 @@ public class ServicioBuscadoresImpl implements ServicioBuscadores {
             throw new ServicioException(e.getMessage(), TipoExcepcion.GENERAL, CodigoException.ERROR_GENERAL);
         }
     }
+
 }

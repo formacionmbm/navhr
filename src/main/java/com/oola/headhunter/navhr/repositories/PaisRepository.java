@@ -16,5 +16,8 @@ public interface PaisRepository extends JpaRepository<Pais,String> {
      @Query("SELECT p FROM Pais p WHERE p.nombre=:nombre")
      public List<Pais> findByNombreJPQL(@Param("nombre") String nombre);
 
-    public List<Pais> findByNombre(@Param("nombre") String nombre);
+     public List<Pais> findByNombre(@Param("nombre") String nombre);
+
+     public int countByRegion(Region region);
+
 }
