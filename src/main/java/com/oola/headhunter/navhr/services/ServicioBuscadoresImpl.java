@@ -34,7 +34,7 @@ public class ServicioBuscadoresImpl implements ServicioBuscadores {
         log.info("[buscarPaises]");
         log.debug("[nombre:{}]",nombre);
         try {
-            if (nombre == null)
+            if (nombre == null || nombre.trim().isEmpty())
                 return repositorio.findAll();
             return repositorio.findByNombre(nombre);
         }catch(Exception e){

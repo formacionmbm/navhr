@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pais</title>
+</head>
+<body>
+<div>
+    Pais
+</div>
+
+<div>
+    <form name="f_pais" action="" method="post">
+        <label for="id">Identificador:</label>
+        <input type="text" id="id" name="id">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre">
+        <label for="region">Region</label>
+        <select id="region" name="region">
+            <option th:each="reg:${regiones}" th:text="${reg.nombre}" th:value="${reg.id}"></option>
+        </select>
+        <button>Enviar</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/buscador/paises")
+@RequestMapping("/api/buscador/paises")
 public class BuscadorPaisesRest {
 
     Logger log = LoggerFactory.getLogger(BuscadorPaisesRest.class);
@@ -25,7 +25,7 @@ public class BuscadorPaisesRest {
 
     @GetMapping({"","/{nombre}"})
     public List<Pais> buscador(@PathVariable(required = false) String nombre) throws ServicioException {
-        log.info("[buscador - GET /buscador/paises/{nombre}]");
+        log.info("[buscador - GET /api/buscador/paises/{nombre}]");
         log.debug("[nombre:{}]", nombre);
         List<Pais> paises =servicio.buscarPaises(nombre);
         return paises;

@@ -14,15 +14,16 @@ public class ErrorHandler {
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public String handlerException(){
-        log.info("[handlerException]");
-        return "Error General";
+    public String handlerException(Exception e){
+        log.info("[handlerException ms - {}]",e.getMessage());
+
+        return "error";
     }
 
     @ExceptionHandler(ServicioException.class)
     @ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
     public String handlerServicioException(ServicioException se){
-        log.info("[handlerServicioException]");
-        return "Error de Servicio";
+        log.info("[handlerServicioExceptionms - {}]",se.getMessage());
+        return "error";
     }
 }

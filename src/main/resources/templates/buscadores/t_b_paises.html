@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscador Paises</title>
+</head>
+<body>
+<div>
+    Buscador de paises
+</div>
+<div>
+    <a href="/admin/pais">Crear Pais</a>
+</div>
+<div>
+    <form name="buscador" action="/buscador/paises">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre">
+        <button>Enviar</button>
+    </form>
+</div>
+<div>
+    <ul>
+       <li th:each="pais:${listado}" th:text="${pais.nombre}"></li>
+    </ul>
+</div>
+</body>
+</html>
