@@ -28,6 +28,8 @@ public class BuscadorPaisesController {
         List<Pais> paises = servicio.buscarPaises(nombre);
 
         model.addAttribute("listado",paises);
+        log.debug("[msg:{}",model.getAttribute("msg"));
+
         return "buscadores/t_b_paises";
 
     }

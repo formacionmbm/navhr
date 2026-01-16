@@ -1,0 +1,9 @@
+title = Countries Search
+
+
+
+form.nombre= Name
+form.button.enviar=Go
+
+
+a.admin.pais= New Country

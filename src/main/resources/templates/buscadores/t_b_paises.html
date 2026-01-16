@@ -2,26 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Buscador Paises</title>
+    <title th:text="#{title}">Buscador de paises</title>
 </head>
 <body>
 <div>
-    Buscador de paises
+   <h1 th:text="#{title}" > Buscador de paises</h1>
 </div>
 <div>
-    <a href="/admin/pais">Crear Pais</a>
+    <a href="/admin/pais" th:text="#{a.admin.pais}">Crear Pais</a>
 </div>
 <div>
     <form name="buscador" action="/buscador/paises">
-        <label for="nombre">Nombre</label>
+        <label for="nombre" th:text="#{form.nombre}">Nombre</label>
         <input type="text" id="nombre" name="nombre">
-        <button>Enviar</button>
+        <button th:text="#{form.button.enviar}">Enviar</button>
     </form>
 </div>
 <div>
     <ul>
-       <li th:each="pais:${listado}" th:text="${pais.nombre}"></li>
+       <li th:each="pais:${listado}" th:text="${pais.id}+ '  ' +${pais.nombre}+'   '+${pais.region.nombre}"></li>
     </ul>
+</div>
+
+<div th:if="${msg}" >
+    <p th:text="#{${msg.codigo}}"></p>
 </div>
 </body>
 </html>
