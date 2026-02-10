@@ -22,7 +22,7 @@ public class BuscadorPaisesController {
     @Autowired
     ServicioBuscadores servicio;
 
-    @GetMapping
+    @RequestMapping
     public String buscador(@RequestParam(required = false) String nombre, Model model) throws ServicioException {
         log.info("[buscador]");
         List<Pais> paises = servicio.buscarPaises(nombre);
